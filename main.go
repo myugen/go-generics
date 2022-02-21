@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func newGenericFunc[age int64 | float32](myage age) {
+func newGenericFunc[age any](myage age) {
 	fmt.Println(myage)
 }
 
@@ -14,4 +14,5 @@ func main() {
 
 	newGenericFunc(age)
 	newGenericFunc(age2)
+	newGenericFunc("foo")
 }
