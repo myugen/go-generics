@@ -2,8 +2,14 @@ package main
 
 import "fmt"
 
-func newGenericFunc[age any](myage age) {
-	fmt.Println(myage)
+type Number interface {
+	int | int8 | int16 | int32 | int64 |
+		float32 | float64
+}
+
+func newGenericFunc[age Number](myage age) {
+	val := int(myage) + 1
+	fmt.Println(val)
 }
 
 func main() {
@@ -14,5 +20,4 @@ func main() {
 
 	newGenericFunc(age)
 	newGenericFunc(age2)
-	newGenericFunc("foo")
 }
